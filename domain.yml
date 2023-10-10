@@ -1,0 +1,734 @@
+version: "3.1"
+
+config:
+  store_entities_as_slots: true
+  
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - income_go_ahead
+  - fixed_expenses_go_ahead
+  - say_thank_you
+  - emergency_expenses_go_ahead
+  - other_expenses_go_ahead
+  - investment_expenses_go_ahead
+  - tax_expenses_go_ahead
+  - debt_expenses_go_ahead
+  - discretionary_expenses_go_ahead
+  - variable_expenses_go_ahead
+
+slots:
+  options:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: options
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: language
+  phone:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: phone
+  phone_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: phone_type
+  contact_prefer:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: contact_prefer
+  confirm_phone:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: basic_info_form
+        requested_slot: confirm_phone
+  other_phone:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: phone_form
+        requested_slot: other_phone
+  street_address:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: address_form
+        requested_slot: street_address
+  city:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: address_form
+        requested_slot: city
+  zipcode:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: address_form
+        requested_slot: zipcode
+  confirm_address:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: address_form
+        requested_slot: confirm_address
+  full_address:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: address_form
+        requested_slot: full_address
+  home_members:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: personal_form
+        requested_slot: home_members
+  race:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: personal_form
+        requested_slot: race
+  hispanic:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: personal_form
+        requested_slot: hispanic
+  gender:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: personal_form
+        requested_slot: gender
+  income_source:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_source_form
+        requested_slot: income_source
+  other_income:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_source_form
+        requested_slot: other_income
+  income_belong:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_belong_form
+        requested_slot: income_belong
+  other_income_belong:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_belong_form
+        requested_slot: other_income_belong
+  income_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_type_form
+        requested_slot: income_amount
+  salary_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: income_type_form
+        requested_slot: salary_type
+# =============================================================================
+#   more_income:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#     - type: from_text
+#       conditions:
+#       - active_loop: income_type_form
+#         requested_slot: more_income
+# =============================================================================
+  fixed_spending:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: fixed_spending_form
+        requested_slot: fixed_spending
+  fixed_spending_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: fixed_spending_form
+        requested_slot: fixed_spending_frequency
+  fixed_spending_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: fixed_spending_form
+        requested_slot: fixed_spending_amount
+  fixed_more_spending:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: fixed_spending_form
+        requested_slot: fixed_more_spending
+  variable_spending:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: variable_spending_form
+        requested_slot: variable_spending
+  variable_spending_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: variable_spending_form
+        requested_slot: variable_spending_frequency
+  variable_spending_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: variable_spending_form
+        requested_slot: variable_spending_amount
+  discretionary_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: discretionary_expense_form
+        requested_slot: discretionary_expenses
+  discretionary_expenses_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: discretionary_expense_form
+        requested_slot: discretionary_expenses_frequency
+  discretionary_expenses_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: discretionary_expense_form
+        requested_slot: discretionary_expenses_amount
+  debt_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: debt_expenses_form
+        requested_slot: debt_expenses
+  debt_expenses_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: debt_expenses_form
+        requested_slot: debt_expenses_frequency
+  debt_expenses_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: debt_expenses_form
+        requested_slot: debt_expenses_amount
+  tax_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: tax_expenses_form
+        requested_slot: tax_expenses
+  tax_expenses_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: tax_expenses_form
+        requested_slot: tax_expenses_frequency
+  tax_expenses_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: tax_expenses_form
+        requested_slot: tax_expenses_amount
+  investment_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: investment_expenses_form
+        requested_slot: investment_expenses
+  investment_expenses_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: investment_expenses_form
+        requested_slot: investment_expenses_frequency
+  investment_expenses_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: investment_expenses_form
+        requested_slot: investment_expenses_amount
+  emergency_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: emergency_expenses_form
+        requested_slot: emergency_expenses
+  emergency_frequency: 
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: emergency_expenses_form
+        requested_slot: emergency_frequency
+  emergency_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: emergency_expenses_form
+        requested_slot: emergency_amount
+  other_expenses:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: other_expenses_form
+        requested_slot: other_expenses
+  other_expense_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: other_expenses_form
+        requested_slot: other_expense_name
+  other_expense_frequency:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: other_expenses_form
+        requested_slot: other_expense_frequency
+  other_expense_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: other_expenses_form
+        requested_slot: other_expense_amount
+        
+responses:
+  utter_iamabot:
+  - text: "I am Lucky, your online assitant."
+  
+  utter_greet:
+  - text: "Hello!\nI'm Lucky. Do you need any help?"
+  
+  utter_ask_options:
+  - text: "What do you need help with?\n- Financial Advice\n- Housing Questions"
+  
+  utter_ask_language:
+  - text: "All right, I hope to help you with that.\nFirst, let's get to know each other. My primary language is English, but I am learning how to speak more languages. \nWhat is you primary language?\n- English\n- Spanish\n- Other"
+
+  utter_ask_phone:
+  - text: "That's awesome! My phone number is 214-739-6151. What yours?"
+
+  utter_ask_phone_type:
+  - text: "Please tell me which type of phone is this? \n Cell Phone \n Home Phone"
+  
+  utter_ask_contact_prefer:
+  - text: "Wow so many ways to talk to you. How do you prefer I get in touch with you in the future? \n Email \n Phone Call \n Text(SMS)"
+  
+  utter_ask_confirm_phone:
+  - text: "Which number should I use to reach out to you later? \n{phone} \nOther"
+          
+  utter_ask_other_phone:
+  - text: "What is the new number you want me to reach you through?"
+  
+  utter_ask_street_address:
+  - text: "Great! Did you know my home address is this website. What's your address?"
+  
+  utter_ask_city:
+  - text: "What city do you live in?"
+  
+  utter_ask_zipcode:
+  - text: "Oh nice! What is your Zip code?"
+  
+  utter_ask_confirm_address:
+  - text: "Perfect. Can you verify that this is your full address?\n {street_address},{city} - {zipcode} \n- Yes\n- No"
+  
+  utter_ask_full_address:
+  - text: "Oh no! Please help me correct it."
+  
+  utter_ask_home_members:
+  - text: "I'm the only chatbot that lives on this webpage. How many people live at your household including you?"
+  
+  utter_fascinated:
+  - text: "Oooh ok. You know, I have always been fascinated by humans. There is so much diversity in mankind.\n\nI am interested to know what type of human you are but please feel free to choose \"prefer not to say\" if you do not want to answer my next few questions.\n\n"
+  
+  utter_ask_race:
+  - text: "What ethnicity/race are you? \n- Black / African American\n- Native Hawaiian or other Pacific Islander\n- White\n- American Indian or Alaskan Native\n- Asian\n- More than one race / Other\n- Prefer Not To Say"
+  
+  utter_ask_hispanic:
+  - text: "Are you Hispanic/Latino?\n- Yes\n- No\n- Prefer Not To Say"
+  
+  utter_ask_gender:
+  - text: "Fun fact: I have no gender. What gender are you?\n- Female\n- Male\n- Gender Non-Conforming\n- Prefer Not To Say"
+
+  utter_goodbye:
+  - text: "Bye"
+  
+  utter_bearing:
+  - text: "Thank you for bearing with me! I learned a lot about you which will help me help you. \nI just have a few more questions to ask you...\n \nAs a chatbot, I don't have a traditional source of income. But I'm curious to know what kind of income stream(s) you rely on.\n- Yes (income go ahead)\n- No (goodbye)"
+  
+  utter_ask_income_source:
+  - text: "What is your source of income? If you have multiple, don't worry, I will ask this question again. Just choose one for now.\n- Full-Time Employment\n- Part-Time Employment\n- Umemployed\n- Child Support\n- Retired \n- Business \n- Alimony \n- Social Security\n- Other"
+
+  utter_ask_other_income:
+  - text: "What do you mean by 'other'?"
+  
+  utter_ask_income_belong:
+  - text: "I'm intrigued, who does the income belong to?\n- Self \n- Spouse\n- Joint\n- Other"
+  
+  utter_ask_other_income_belong:
+  - text: "Who is the other person?"
+  
+  utter_ask_income_amount:
+  - text: "Let's talk numbers! Can you share with me the typical amount you receive for your work or services?"
+  
+  utter_ask_salary_type:
+  - text: "How often do you see the fruits of your hard work in your bank account?\n- Hourly\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Quarterly\n- Semiannually\n- Annually"
+
+  utter_more_income:
+  - text: "Do you have another source of income?\n- Yes(another income)\n- No(fixed expenses)"
+  
+  utter_finance_understand:
+  - text: "I feel like I have a better understanding of your financial situation now. Before we wrap things up, I have just a few questions about your expenses.\n \n"
+  
+  utter_examine_spending:
+  - text: "Are you aware that there are seven primary areas into which you might divide your overall spending?\n \nLet's examine your expenses and figure out what they are.\n \n'FIXED EXPENSES' are your normal monthly expenses that never change.\n \n"
+
+  utter_ask_fixed_spending:
+  - text: "Choose a fixed expense you have. If you have multiple, just choose one for now.\n- Rent\n- Mortgage\n- Car Payments\n- Auto Insurance\n- Home Insurance\n- Health Insurance\n- Subscriptions\n- Pet Insurance\n- None"
+
+  utter_ask_fixed_spending_frequency:
+  - text: "How often do you pay for {fixed_spending}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_fixed_spending_amount:
+  - text: "How much do you pay for {fixed_spending} {fixed_spending_frequency}?"
+  
+  utter_fixed_more_spending:
+  - text: "Do you have another current fixed expense?\n -Yes(fixed expense)\n- No(variable expense)"
+  
+  utter_variable_spending:
+  - text: "'VARIABLE EXPENSES' are expenses that vary from month to month. Let's look at these in more detail.\n"
+  
+  utter_ask_variable_spending:
+  - text: "Choose a variable expense you have. If you have multiple, just choose one for now. I will ask this question again if you don't press 'None'.\n- Groceries\n- Utilities\n- Transportation/Gas\n- Entertainment\n- Dining Out\n- Pet Expenses\n- None"
+
+  utter_ask_variable_spending_frequency:
+  - text: "How often do you pay for {variable_spending}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_variable_spending_amount:
+  - text: "How much do you pay for {variable_spending} {variable_spending_frequency}?"
+  
+  utter_variable_more_spending:
+  - text: "Do you have another current variable expense?\n -Yes(variable expense)\n- No(discretionary expense)"
+  
+  utter_discretionary_expenses:
+  - text: "It's alright to spend money on self care when we occasionally need a break. These are called 'DISCRETIONARY EXPENSES'.\n" 
+  
+  utter_ask_discretionary_expenses:
+  - text: "Choose a discretionary expense you have. If you have multiple, just choose one for now. I will ask this question again if you don't press 'none'.\n- Vacations\n- Hobbies\n- Personal Care\n- None"
+  
+  utter_ask_discretionary_expenses_frequency:
+  - text: "How often do you pay for {discretionary_expenses}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_discretionary_expenses_amount:
+  - text: "How much do you pay for {discretionary_expenses} {discretionary_expenses_frequency}?"
+  
+  utter_discretionary_more_spending:
+  - text: "Do you have another current discretionary expense?\n -Yes(discretionary expense)\n- No(debt expense)"
+  
+  utter_debt_expenses:
+  - text: "If you are paying off debt or loans, it counts as a 'DEBT RELATED EXPENSES'.\n"
+  
+  utter_ask_debt_expenses:
+  - text: "Choose a debt expense you have. If you have multiple, just choose one for now. I will ask this question again if you don't press 'none'\n- Credit Cards\n- Personal Loan\n- Other Debt\n- None"
+
+  utter_ask_debt_expenses_frequency:
+  - text: "How often do you pay for {debt_expenses}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_debt_expenses_amount:
+  - text: "How much do you pay for {debt_expenses} {debt_expenses_frequency}?"
+  
+  utter_debt_more_spending:
+  - text: "Do you have another current debt expense?\n -Yes(debt expense)\n- No(tax expense)"
+
+  utter_tax_expenses:
+  - text: "'TAX RELATED EXPENSES' are unavoidable.\n"
+  
+  utter_ask_tax_expenses:
+  - text: "Choose a tax related expense you have. If you have multiple, just choose one for now. I will ask this question again if you don't press 'none'.\n- Income Tax\n- Property Tax\n- None"
+
+  utter_ask_tax_expenses_frequency:
+  - text: "How often do you pay for {tax_expenses}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_tax_expenses_amount:
+  - text: "How much do you pay for {tax_expenses} {tax_expenses_frequency}?"
+  
+  utter_tax_more_spending:
+  - text: "Do you have another current tax expense?\n -Yes(tax expense)\n- No(investment expense)"
+
+  utter_investment_expenses:
+  - text: "Let's see if you have any 'INVESTMENT RELATED EXPENSES'.\n"
+  
+  utter_ask_investment_expenses:
+  - text: "Choose a investment related expense you have. If you have multiple, just choose one for now. I will ask this question again if you don't press 'none'\n- Investment Account Fee\n- Trading Fee\n- Financial Advice\n- None"
+
+  utter_ask_investment_expenses_frequency:
+  - text: "How often do you pay for {investment_expenses}\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_investment_expenses_amount:
+  - text: "How much do you pay for {investment_expenses} {investment_expenses_frequency}?"
+  
+  utter_investment_more_spending:
+  - text: "Do you have another current investment expense?\n -Yes(investment expense)\n- No(emergency expense)"
+
+  utter_ask_emergency_expenses:
+  - text: "We frequently incur unforeseen costs, so we sometimes set away some money. Have you budgeted for 'EMERGENCY EXPENSES'?\n- Yes\n- No"
+  
+  utter_ask_emergency_frequency:
+  - text: "How often do you set aside money for emergencies?\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_emergency_amount:
+  - text: "How much do you set aside for emergencies {emergency_frequency}?"
+  
+  utter_emergency_more_spending:
+  - text: "Do you have another current emergency expense?\n -Yes(emergency expense)\n- No(other expense)"
+  
+  utter_celebrate:
+  - text: "Yay! We've covered the main seven areas of spending. In case I overlooked something you want to add, you can add them in now."
+  
+  utter_ask_other_expenses:
+  - text: "Do you want to add any other expenses?\n- Yes\n- No"
+
+  utter_ask_other_expense_name:
+  - text: "What do you want to call this expense?"
+  
+  utter_ask_other_expense_frequency:
+  - text: "How often do you pay for {other_expense_name}?\n- Daily\n- Weekly\n- Biweekly\n- Semimonthly\n- Monthly\n- Bimonthly\n- Quarterly\n- Semiannually\n- Annually"
+  
+  utter_ask_other_expense_amount:
+  - text: "How much do you spend on {other_expense_name} {other_expense_frequency}?"
+  
+  utter_other_more_spending:
+  - text: "Do you have another current other expense?\n -Yes(other expense)\n- No(thank you)"
+  
+  utter_thank_you:
+  - text: "All right! Thank you for answering all of my questions."
+  
+actions:
+  - action_submit_form
+  - validate_basic_info_form
+  - validate_phone_form
+  - validate_address_form
+  - validate_income_belong_form
+  - validate_income_source_form
+  - validate_fixed_spending_form
+  - validate_variable_spending_form
+  - validate_discretionary_expense_form
+  - validate_debt_expenses_form
+  - validate_tax_expenses_form
+  - validate_investment_expenses_form
+  - validate_emergency_expenses_form
+  - validate_other_expenses_form
+  - action_submit_income_form
+  - action_submit_fixed_form
+  - action_submit_variable_form
+  - action_submit_discretionary_form
+  - action_submit_debt_form
+  - action_submit_investment_form
+  - action_submit_tax_form
+  - action_submit_emergency_form
+  - action_submit_other_form
+
+forms:
+  basic_info_form:
+    required_slots:
+      - options
+      - language
+      - phone
+      - phone_type
+      - contact_prefer
+      - confirm_phone
+  phone_form:
+    required_slots:
+      - other_phone
+  address_form:
+    required_slots:
+      - street_address
+      - city  
+      - zipcode
+      - confirm_address
+      - full_address
+  personal_form:
+    required_slots:
+      - home_members
+      - race
+      - hispanic
+      - gender
+  income_source_form:
+    required_slots:
+      - income_source
+      - other_income
+  income_belong_form:
+    required_slots:
+      - income_belong
+      - other_income_belong
+  income_type_form:
+    required_slots:
+      - income_amount
+      - salary_type
+  fixed_spending_form:
+    required_slots:
+      - fixed_spending
+      - fixed_spending_frequency
+      - fixed_spending_amount
+  variable_spending_form:
+    required_slots:
+      - variable_spending
+      - variable_spending_frequency
+      - variable_spending_amount
+  discretionary_expense_form:
+    required_slots:
+      - discretionary_expenses
+      - discretionary_expenses_frequency
+      - discretionary_expenses_amount
+  debt_expenses_form:
+    required_slots:
+      - debt_expenses
+      - debt_expenses_frequency
+      - debt_expenses_amount
+  tax_expenses_form:
+    required_slots:
+      - tax_expenses
+      - tax_expenses_frequency
+      - tax_expenses_amount
+  investment_expenses_form:
+    required_slots:
+      - investment_expenses
+      - investment_expenses_frequency
+      - investment_expenses_amount
+  emergency_expenses_form:
+    required_slots:
+      - emergency_expenses
+      - emergency_frequency
+      - emergency_amount
+  other_expenses_form:
+    required_slots:
+      - other_expenses
+      - other_expense_name
+      - other_expense_frequency
+      - other_expense_amount
