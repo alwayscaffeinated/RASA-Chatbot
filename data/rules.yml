@@ -1,0 +1,24 @@
+version: "3.1"
+
+rules:
+
+  - rule: activate form
+    steps:
+    - intent: affirm
+    - action: basic_info_form
+    - active_loop: basic_info_form
+
+# =============================================================================
+#   - rule: submit form
+#     condition:
+#     - active_loop: other_expenses_form
+#     steps:
+#     - active_loop: null
+#     - action: utter_thank_you
+#     - action: action_submit_form    
+# =============================================================================
+    
+  - rule: say goodbye
+    steps:
+    - intent: goodbye
+    - action: utter_goodbye

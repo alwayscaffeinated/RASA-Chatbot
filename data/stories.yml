@@ -1,0 +1,136 @@
+version: "3.1"
+
+stories:
+- story: personal info form story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: basic_info_form
+  - active_loop: basic_info_form
+  - active_loop: null
+  - action: phone_form
+  - active_loop: phone_form
+  - active_loop: null
+  - action: address_form
+  - active_loop: address_form
+  - active_loop: null
+  - action: utter_fascinated
+  - action: personal_form
+  - active_loop: personal_form
+  - active_loop: null
+  - action: action_submit_form
+  - action: utter_bearing
+
+- story: income form story
+  steps:
+  - intent: income_go_ahead
+  - action: income_source_form
+  - active_loop: income_source_form
+  - active_loop: null
+  - action: income_belong_form
+  - active_loop: income_belong_form
+  - active_loop: null
+  - action: income_type_form
+  - active_loop: income_type_form
+  - active_loop: null
+  - action: action_submit_income_form
+  - action: utter_more_income
+
+- story: fixed spending form story
+  steps:
+  - intent: fixed_expenses_go_ahead
+  - action: utter_examine_spending
+  - action: fixed_spending_form
+  - active_loop: fixed_spending_form
+  - active_loop: null
+  - action: action_submit_fixed_form
+  - action: utter_fixed_more_spending
+
+  
+- story: variable spending form story
+  steps: 
+  - intent: variable_expenses_go_ahead
+  - action: utter_variable_spending
+  - action: variable_spending_form
+  - active_loop: variable_spending_form
+  - active_loop: null
+  - action: action_submit_variable_form
+  - action: utter_variable_more_spending
+  
+  
+- story: discretionary expenses form story
+  steps:
+  - intent: discretionary_expenses_go_ahead
+  - action: utter_discretionary_expenses
+  - action: discretionary_expense_form
+  - active_loop: discretionary_expense_form
+  - active_loop: null
+  - action: action_submit_discretionary_form
+  - action: utter_discretionary_more_spending 
+  
+- story: debt expenses form story
+  steps:
+  - intent: debt_expenses_go_ahead
+  - action: utter_debt_expenses
+  - action: debt_expenses_form
+  - active_loop: debt_expenses_form
+  - active_loop: null
+  - action: action_submit_debt_form
+  - action: utter_debt_more_spending   
+  
+- story: tax expenses form story
+  steps:
+  - intent: tax_expenses_go_ahead
+  - action: utter_tax_expenses
+  - action: tax_expenses_form
+  - active_loop: tax_expenses_form
+  - active_loop: null
+  - action: action_submit_tax_form
+  - action: utter_tax_more_spending     
+  
+- story: investment expenses form story
+  steps:
+  - intent: investment_expenses_go_ahead
+  - action: utter_investment_expenses
+  - action: investment_expenses_form
+  - active_loop: investment_expenses_form
+  - active_loop: null
+  - action: action_submit_investment_form
+  - action: utter_investment_more_spending     
+
+- story: emergency expenses form story
+  steps:
+  - intent: emergency_expenses_go_ahead
+  - action: emergency_expenses_form
+  - active_loop: emergency_expenses_form
+  - active_loop: null
+  - action: action_submit_emergency_form
+  - action: utter_emergency_more_spending   
+  
+- story: other expenses form story
+  steps:
+  - intent: other_expenses_go_ahead
+  - action: utter_celebrate
+  - action: other_expenses_form
+  - active_loop: other_expenses_form
+  - active_loop: null
+  - action: action_submit_other_form
+  - action: utter_other_more_spending   
+  
+- story: end of form say thank you
+  steps:
+  - intent: say_thank_you
+  - action: utter_thank_you
+
+- story: form not proceed story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_goodbye
+  
+- story: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

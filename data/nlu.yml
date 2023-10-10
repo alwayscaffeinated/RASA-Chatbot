@@ -1,0 +1,165 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+- intent: income_go_ahead
+  examples: |
+    - sure go ahead
+    - lets do income
+    - sure
+    - okay
+    - i have another income
+    - another income
+    
+- intent: fixed_expenses_go_ahead
+  examples: |
+    - fixed
+    - lets do expenses
+    - fixed expenses
+    - another fixed expenses
+    
+- intent: variable_expenses_go_ahead
+  examples: |
+    - variable
+    - varaible
+    - let do variable expenses
+    - variable expenses
+    - another variable expenses
+    
+- intent: discretionary_expenses_go_ahead
+  examples: |
+    - discretionary
+    - let do discretionary expenses
+    - discretionary expenses
+    - another discretionary expenses
+    
+- intent: debt_expenses_go_ahead
+  examples: |
+    - debt
+    - let do debt expenses
+    - debt expenses
+    - another debt expenses
+    
+- intent: tax_expenses_go_ahead
+  examples: |
+    - tax
+    - taxes
+    - let do tax expenses
+    - tax expenses
+    - another tax expenses
+    
+- intent: investment_expenses_go_ahead
+  examples: |
+    - investment
+    - invest
+    - let do investment expenses
+    - investment expenses
+    - another investment expenses
+    
+- intent: emergency_expenses_go_ahead
+  examples: |
+    - emergency
+    - let do emergency expenses
+    - emergency expenses
+    - another emergency expenses
+    
+- intent: other_expenses_go_ahead
+  examples: |
+    - other
+    - let do other expenses
+    - other expenses
+    - another other expenses
+    
+- intent: say_thank_you
+  examples: |
+    - thank you
+    - thanks
+    - thanks a lot
